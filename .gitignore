@@ -3,6 +3,9 @@ __pycache__/
 *.egg-info/
 *.pt
 
+# Generated outputs. Keep results local and out of git.
+results/
+
 # Local/private hand assets. This directory may contain MANO files and
 # vendor-provided dexterous-hand engineering files, so it is not committed.
 assets/hands/

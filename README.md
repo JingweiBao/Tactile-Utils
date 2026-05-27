@@ -23,6 +23,110 @@ tests/     regression tests
 
 For MANO files, see [MANO_ASSETS.md](MANO_ASSETS.md) for download instructions and required local paths. For dexterous-hand engineering files, ask the corresponding hand vendor or hardware provider for the official package; this repository only documents the expected local layout.
 
+## Environment
+
+This project uses the Conda environment named `tactile_utils`.
+
+Activate it before running project commands:
+
+```bash
+conda activate tactile_utils
+```
+
+Install future dependencies into this environment through Conda whenever possible:
+
+```bash
+conda install -n tactile_utils <package>
+```
+
+If a package is unavailable from Conda channels, install it with pip from inside the activated `tactile_utils` environment.
+
+## Module: Offline Shape Alignment Diagnostics
+
+The first `offline_shape_alignment` implementation is diagnostic-only. It does not optimize MANO shape parameters yet.
+
+It currently supports XHand reference-pose diagnostics against MANO:
+
+- Infer 21 XHand semantic keypoints from URDF joint/link names and FK.
+- Generate 21 MANO semantic keypoints from the MANO reference model.
+- Estimate a `robot_to_mano` similarity transform.
+- Save a JSON report and a PNG visual comparison under `results/offline_shape_alignment/`.
+- Optionally fit a conservative XHand reference `qpos` when the semantic keypoints match but the finger-base spread differs from MANO.
+
+```bash
+offline-shape-alignment diagnose-xhand-reference \
+  --side right \
+  --xhand-root assets/hands/xhand \
+  --mano-root assets/hands/mano \
+  --out-json xhand_right_diagnostic.json \
+  --out-png xhand_right_diagnostic.png
+```
+
+To diagnose with a fitted XHand reference pose, run:
+
+```bash
+offline-shape-alignment fit-xhand-reference-pose \
+  --side both \
+  --xhand-root assets/hands/xhand \
+  --mano-root assets/hands/mano \
+  --out-json xhand_both_fit_diagnostic.json \
+  --out-png xhand_both_fit_diagnostic.png \
+  --out-pose-json xhand_both_robot_reference_pose.json
+```
+
+This writes the fitted robot `qpos`, baseline metrics, optimized metrics, and PNG comparison. It applies the fitted pose during diagnosis only; it does not rewrite URDF, mesh, or MANO assets.
+
+The beta-only MANO shape optimization step requires PyTorch in the same Conda environment:
+
+```bash
+conda install -n tactile_utils pytorch cpuonly -c pytorch
+```
+
+If the CPU PyTorch package is installed against an incompatible MKL runtime, keep MKL below 2025:
+
+```bash
+conda install -n tactile_utils "mkl<2025"
+```
+
+Run beta-only shape fitting with:
+
+```bash
+offline-shape-alignment fit-mano-shape \
+  --side right \
+  --xhand-root assets/hands/xhand \
+  --mano-root assets/hands/mano \
+  --iterations 1000 \
+  --robot-surface-points 2048 \
+  --mano-surface-points 2048 \
+  --out-json xhand_right_mano_beta_fit.json \
+  --out-png xhand_right_mano_beta_fit.png \
+  --out-loss-png xhand_right_mano_beta_loss.png \
+  --out-obj xhand_right_fitted_mano.obj
+```
+
+This optimizes MANO `beta` only. MANO pose remains the template / zero pose, and XHand is first aligned into the MANO frame using the diagnosed `robot_to_mano` transform.
+
+After validating beta-only results, run the strongly regularized beta + pose residual MVP with:
+
+```bash
+offline-shape-alignment fit-mano-shape-pose \
+  --side both \
+  --xhand-root assets/hands/xhand \
+  --mano-root assets/hands/mano \
+  --beta-init-iterations 400 \
+  --iterations 600 \
+  --robot-surface-points 2048 \
+  --mano-surface-points 2048 \
+  --pose-limit-rad 0.25 \
+  --pose-l2-weight 1e-3 \
+  --out-json xhand_both_mano_beta_pose_fit.json \
+  --out-png xhand_both_mano_beta_pose_fit.png \
+  --out-loss-png xhand_both_mano_beta_pose_loss.png \
+  --out-obj xhand_both_fitted_mano_beta_pose.obj
+```
+
+This still keeps the MANO root fixed and constrains each non-root MANO joint residual through `pose_limit_rad * tanh(raw_pose)`. It is meant to test whether small MANO pose residuals improve alignment without letting pose absorb all robot-vs-human morphology differences.
+
 ## Module: 3D Tactile Layout Projection
 
 Scope:
@@ -116,5 +220,6 @@ side -> sensor_name -> {
 ## Tests
 
 ```bash
-PYTHONPATH=src /home/jingwei/miniconda3/envs/forcevla/bin/python -m unittest discover -s tests -v
+conda activate tactile_utils
+PYTHONPATH=src python -m unittest discover -s tests -v
 ```
