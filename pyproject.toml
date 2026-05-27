@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tactile-utils"
+version = "0.1.0"
+description = "A collection of tactile-sensor utilities."
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "Pillow>=10.0",
+    "PyYAML>=6.0",
+]
+
+[project.scripts]
+tactile-utils = "tactile_layout_3d_projection.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

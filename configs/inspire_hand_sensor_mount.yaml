@@ -1,0 +1,316 @@
+# Initial Inspire hand tactile mounting estimates for the pick_and_place_img_tactile dataset.
+# Units:
+#   xyz: meters in parent_link frame
+#   rpy: radians
+#   size_mm: sensor footprint height/width in millimeters, matching grid_shape rows/cols
+#
+# These are editable calibration seeds, not hardware-ground-truth extrinsics.
+
+sensors:
+  left_little_finger_tip_sensor:
+    source_key: observation.tactiles.left_tactile_little_finger_tip
+    side: left
+    parent_link: pinky_tip
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: left_little_finger_tip
+  left_little_finger_nail_sensor:
+    source_key: observation.tactiles.left_tactile_little_finger_nail
+    side: left
+    parent_link: pinky_intermediate
+    xyz: [0.0, -0.026, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: left_little_finger_nail
+  left_little_finger_pad_sensor:
+    source_key: observation.tactiles.left_tactile_little_finger_pad
+    side: left
+    parent_link: pinky_proximal
+    xyz: [0.0, -0.016, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [10.0, 8.0]
+    grid_shape: [10, 8]
+    semantic_region: left_little_finger_pad
+  left_ring_finger_tip_sensor:
+    source_key: observation.tactiles.left_tactile_ring_finger_tip
+    side: left
+    parent_link: ring_tip
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: left_ring_finger_tip
+  left_ring_finger_nail_sensor:
+    source_key: observation.tactiles.left_tactile_ring_finger_nail
+    side: left
+    parent_link: ring_intermediate
+    xyz: [0.0, -0.030, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: left_ring_finger_nail
+  left_ring_finger_pad_sensor:
+    source_key: observation.tactiles.left_tactile_ring_finger_pad
+    side: left
+    parent_link: ring_proximal
+    xyz: [0.0, -0.018, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [10.0, 8.0]
+    grid_shape: [10, 8]
+    semantic_region: left_ring_finger_pad
+  left_middle_finger_tip_sensor:
+    source_key: observation.tactiles.left_tactile_middle_finger_tip
+    side: left
+    parent_link: middle_tip
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: left_middle_finger_tip
+  left_middle_finger_nail_sensor:
+    source_key: observation.tactiles.left_tactile_middle_finger_nail
+    side: left
+    parent_link: middle_intermediate
+    xyz: [0.0, -0.032, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: left_middle_finger_nail
+  left_middle_finger_pad_sensor:
+    source_key: observation.tactiles.left_tactile_middle_finger_pad
+    side: left
+    parent_link: middle_proximal
+    xyz: [0.0, -0.018, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [10.0, 8.0]
+    grid_shape: [10, 8]
+    semantic_region: left_middle_finger_pad
+  left_index_finger_tip_sensor:
+    source_key: observation.tactiles.left_tactile_index_finger_tip
+    side: left
+    parent_link: index_tip
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: left_index_finger_tip
+  left_index_finger_nail_sensor:
+    source_key: observation.tactiles.left_tactile_index_finger_nail
+    side: left
+    parent_link: index_intermediate
+    xyz: [0.0, -0.030, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: left_index_finger_nail
+  left_index_finger_pad_sensor:
+    source_key: observation.tactiles.left_tactile_index_finger_pad
+    side: left
+    parent_link: index_proximal
+    xyz: [0.0, -0.018, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [10.0, 8.0]
+    grid_shape: [10, 8]
+    semantic_region: left_index_finger_pad
+  left_thumb_tip_sensor:
+    source_key: observation.tactiles.left_tactile_thumb_tip
+    side: left
+    parent_link: thumb_tip
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: left_thumb_tip
+  left_thumb_nail_sensor:
+    source_key: observation.tactiles.left_tactile_thumb_nail
+    side: left
+    parent_link: thumb_distal
+    xyz: [0.010, -0.006, -0.012]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: left_thumb_nail
+  left_thumb_middle_sensor:
+    source_key: observation.tactiles.left_tactile_thumb_middle
+    side: left
+    parent_link: thumb_intermediate
+    xyz: [0.010, -0.004, -0.012]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: left_thumb_middle
+  left_thumb_pad_sensor:
+    source_key: observation.tactiles.left_tactile_thumb_pad
+    side: left
+    parent_link: thumb_proximal
+    xyz: [0.030, -0.012, -0.012]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: left_thumb_pad
+  left_palm_sensor:
+    source_key: observation.tactiles.left_tactile_palm
+    side: left
+    parent_link: hand_base_link
+    xyz: [-0.003, -0.072, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [28.0, 50.0]
+    grid_shape: [8, 14]
+    semantic_region: left_palm
+
+  right_little_finger_tip_sensor:
+    source_key: observation.tactiles.right_tactile_little_finger_tip
+    side: right
+    parent_link: pinky_tip
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: right_little_finger_tip
+  right_little_finger_nail_sensor:
+    source_key: observation.tactiles.right_tactile_little_finger_nail
+    side: right
+    parent_link: pinky_intermediate
+    xyz: [0.0, 0.026, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: right_little_finger_nail
+  right_little_finger_pad_sensor:
+    source_key: observation.tactiles.right_tactile_little_finger_pad
+    side: right
+    parent_link: pinky_proximal
+    xyz: [0.0, 0.016, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [10.0, 8.0]
+    grid_shape: [10, 8]
+    semantic_region: right_little_finger_pad
+  right_ring_finger_tip_sensor:
+    source_key: observation.tactiles.right_tactile_ring_finger_tip
+    side: right
+    parent_link: ring_tip
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: right_ring_finger_tip
+  right_ring_finger_nail_sensor:
+    source_key: observation.tactiles.right_tactile_ring_finger_nail
+    side: right
+    parent_link: ring_intermediate
+    xyz: [0.0, 0.030, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: right_ring_finger_nail
+  right_ring_finger_pad_sensor:
+    source_key: observation.tactiles.right_tactile_ring_finger_pad
+    side: right
+    parent_link: ring_proximal
+    xyz: [0.0, 0.018, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [10.0, 8.0]
+    grid_shape: [10, 8]
+    semantic_region: right_ring_finger_pad
+  right_middle_finger_tip_sensor:
+    source_key: observation.tactiles.right_tactile_middle_finger_tip
+    side: right
+    parent_link: middle_tip
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: right_middle_finger_tip
+  right_middle_finger_nail_sensor:
+    source_key: observation.tactiles.right_tactile_middle_finger_nail
+    side: right
+    parent_link: middle_intermediate
+    xyz: [0.0, 0.032, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: right_middle_finger_nail
+  right_middle_finger_pad_sensor:
+    source_key: observation.tactiles.right_tactile_middle_finger_pad
+    side: right
+    parent_link: middle_proximal
+    xyz: [0.0, 0.018, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [10.0, 8.0]
+    grid_shape: [10, 8]
+    semantic_region: right_middle_finger_pad
+  right_index_finger_tip_sensor:
+    source_key: observation.tactiles.right_tactile_index_finger_tip
+    side: right
+    parent_link: index_tip
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: right_index_finger_tip
+  right_index_finger_nail_sensor:
+    source_key: observation.tactiles.right_tactile_index_finger_nail
+    side: right
+    parent_link: index_intermediate
+    xyz: [0.0, 0.030, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: right_index_finger_nail
+  right_index_finger_pad_sensor:
+    source_key: observation.tactiles.right_tactile_index_finger_pad
+    side: right
+    parent_link: index_proximal
+    xyz: [0.0, 0.018, -0.011]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [10.0, 8.0]
+    grid_shape: [10, 8]
+    semantic_region: right_index_finger_pad
+  right_thumb_tip_sensor:
+    source_key: observation.tactiles.right_tactile_thumb_tip
+    side: right
+    parent_link: thumb_tip
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: right_thumb_tip
+  right_thumb_nail_sensor:
+    source_key: observation.tactiles.right_tactile_thumb_nail
+    side: right
+    parent_link: thumb_distal
+    xyz: [0.010, 0.006, -0.012]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: right_thumb_nail
+  right_thumb_middle_sensor:
+    source_key: observation.tactiles.right_tactile_thumb_middle
+    side: right
+    parent_link: thumb_intermediate
+    xyz: [0.010, 0.004, -0.012]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [9.0, 9.0]
+    grid_shape: [3, 3]
+    semantic_region: right_thumb_middle
+  right_thumb_pad_sensor:
+    source_key: observation.tactiles.right_tactile_thumb_pad
+    side: right
+    parent_link: thumb_proximal
+    xyz: [0.030, 0.012, -0.012]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [12.0, 8.0]
+    grid_shape: [12, 8]
+    semantic_region: right_thumb_pad
+  right_palm_sensor:
+    source_key: observation.tactiles.right_tactile_palm
+    side: right
+    parent_link: hand_base_link
+    xyz: [-0.003, -0.072, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+    size_mm: [28.0, 50.0]
+    grid_shape: [8, 14]
+    semantic_region: right_palm
