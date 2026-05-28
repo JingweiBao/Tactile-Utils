@@ -4,7 +4,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from offline_shape_alignment.types import Mesh
+from sub_modules.offline_shape_alignment.types import Mesh
 
 
 @dataclass(frozen=True)

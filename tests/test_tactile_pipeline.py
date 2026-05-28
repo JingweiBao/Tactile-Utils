@@ -5,14 +5,14 @@ import tempfile
 import unittest
 import pickle
 
-from tactile_layout_3d_projection.config import load_sensor_mount_config
-from tactile_layout_3d_projection.inspire import (
+from sub_modules.tactile_layout_3d_projection.config import load_sensor_mount_config
+from sub_modules.tactile_layout_3d_projection.inspire import (
     build_inspire_3d_scene,
     export_sensor_points_3d,
     render_inspire_3d_scene,
 )
-from tactile_layout_3d_projection.urdf import load_urdf
-from tactile_layout_3d_projection.xhand import (
+from sub_modules.tactile_layout_3d_projection.urdf import load_urdf
+from sub_modules.tactile_layout_3d_projection.xhand import (
     _load_tactile_xml_points,
     _mujoco_tactile_points_to_urdf_local,
     build_xhand_3d_scene,

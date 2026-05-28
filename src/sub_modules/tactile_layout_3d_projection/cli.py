@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from tactile_layout_3d_projection.config import load_sensor_mount_config
+from sub_modules.tactile_layout_3d_projection.config import load_sensor_mount_config
 from tactile_utils_common.results import make_result_timestamp, module_result_path
 
 
@@ -67,7 +67,7 @@ def _add_result_args(parser: argparse.ArgumentParser) -> None:
 
 
 def _cmd_visualize_inspire_3d(args: argparse.Namespace) -> None:
-    from tactile_layout_3d_projection.inspire import (
+    from sub_modules.tactile_layout_3d_projection.inspire import (
         build_inspire_3d_scene,
         export_sensor_points_3d,
         render_inspire_3d_scene,
@@ -95,7 +95,7 @@ def _cmd_visualize_inspire_3d(args: argparse.Namespace) -> None:
 
 
 def _cmd_visualize_xhand_3d(args: argparse.Namespace) -> None:
-    from tactile_layout_3d_projection.xhand import (
+    from sub_modules.tactile_layout_3d_projection.xhand import (
         build_xhand_3d_scene,
         export_xhand_sensor_points_3d,
         render_xhand_3d_scenes,

@@ -4,11 +4,11 @@ import argparse
 import json
 from pathlib import Path
 
-from offline_shape_alignment.alignment import diagnose_alignment
-from offline_shape_alignment.mano import load_mano_reference
-from offline_shape_alignment.reference_pose import fit_xhand_reference_pose, reference_pose_fit_to_json
-from offline_shape_alignment.render import render_alignment_report, render_alignment_reports, render_loss_histories
-from offline_shape_alignment.shape_optimization import (
+from sub_modules.offline_shape_alignment.alignment import diagnose_alignment
+from sub_modules.offline_shape_alignment.mano import load_mano_reference
+from sub_modules.offline_shape_alignment.reference_pose import fit_xhand_reference_pose, reference_pose_fit_to_json
+from sub_modules.offline_shape_alignment.render import render_alignment_report, render_alignment_reports, render_loss_histories
+from sub_modules.offline_shape_alignment.shape_optimization import (
     PoseShapeOptimizationConfig,
     ShapeOptimizationConfig,
     fit_mano_beta_to_xhand,
@@ -17,7 +17,7 @@ from offline_shape_alignment.shape_optimization import (
     shape_optimization_result_to_json,
     write_obj,
 )
-from offline_shape_alignment.xhand import default_xhand_urdf_path, load_xhand_reference
+from sub_modules.offline_shape_alignment.xhand import default_xhand_urdf_path, load_xhand_reference
 from tactile_utils_common.results import make_result_timestamp, module_result_path
 
 

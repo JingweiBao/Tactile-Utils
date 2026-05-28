@@ -7,21 +7,21 @@ import unittest
 
 import numpy as np
 
-from offline_shape_alignment.alignment import diagnose_alignment
-from offline_shape_alignment.cli import main as offline_shape_alignment_main
-from offline_shape_alignment.mano import load_mano_reference
-from offline_shape_alignment.mano_torch import load_mano_beta_model
-from offline_shape_alignment.reference_pose import fit_xhand_reference_pose
-from offline_shape_alignment.render import render_alignment_report
-from offline_shape_alignment.sampling import make_surface_sample_pattern, sample_mesh_surface
-from offline_shape_alignment.shape_optimization import (
+from sub_modules.offline_shape_alignment.alignment import diagnose_alignment
+from sub_modules.offline_shape_alignment.cli import main as offline_shape_alignment_main
+from sub_modules.offline_shape_alignment.mano import load_mano_reference
+from sub_modules.offline_shape_alignment.mano_torch import load_mano_beta_model
+from sub_modules.offline_shape_alignment.reference_pose import fit_xhand_reference_pose
+from sub_modules.offline_shape_alignment.render import render_alignment_report
+from sub_modules.offline_shape_alignment.sampling import make_surface_sample_pattern, sample_mesh_surface
+from sub_modules.offline_shape_alignment.shape_optimization import (
     PoseShapeOptimizationConfig,
     ShapeOptimizationConfig,
     fit_mano_beta_pose_to_xhand,
     fit_mano_beta_to_xhand,
 )
-from offline_shape_alignment.types import KEYPOINT_LABELS
-from offline_shape_alignment.xhand import default_xhand_urdf_path, load_xhand_reference
+from sub_modules.offline_shape_alignment.types import KEYPOINT_LABELS
+from sub_modules.offline_shape_alignment.xhand import default_xhand_urdf_path, load_xhand_reference
 
 
 ROOT = Path(__file__).resolve().parents[1]

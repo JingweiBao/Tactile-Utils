@@ -17,7 +17,7 @@
 | XHand URDF | 已有左右手 URDF | `assets/hands/xhand/Xhand-urdf/xhand1_left(1)/urdf/xhand_left.urdf`, `assets/hands/xhand/Xhand-urdf/xhand1_right(1)/urdf/xhand_right.urdf` | 足够读取完整手部结构。路径包含空格和括号，实现时要统一做 Path 处理。 |
 | XHand mesh | 已有 STL mesh | `assets/hands/xhand/Xhand-urdf/.../meshes/` | 足够进行 robot surface sampling。 |
 | XHand tactile 资料 | 已有触觉点 JSON / XML / PDF | `assets/hands/xhand/tactile sensor/` | 对本模块不是必需资源，但后续 tactile-to-MANO 投影会用到。 |
-| 现有代码 | 已有 URDF/mesh/3D 可视化基础 | `src/tactile_layout_3d_projection/` | 可复用 URDF 解析、mesh 读取和 transform 逻辑，但 shape optimization 应独立成新模块。 |
+| 现有代码 | 已有 URDF/mesh/3D 可视化基础 | `src/sub_modules/tactile_layout_3d_projection/` | 可复用 URDF 解析、mesh 读取和 transform 逻辑，但 shape optimization 应独立成新模块。 |
 
 ## 可行性结论
 
@@ -36,12 +36,12 @@
 
 | 缺失项 | 为什么需要 | 建议保存位置 |
 |---|---|---|
-| `robot_mano_keypoint_mapping.yaml` | 定义 wrist、MCP、PIP、DIP、tip 在 robot link/local frame 与 MANO joint/vertex 上的语义对应；可先基于 URDF joint/link 命名自动生成候选 mapping，再人工确认。这是防止串指和错误局部最优的关键资源。 | `src/offline_shape_alignment/config/` 或 `assets/hands/<hand>/calibration/` |
+| `robot_mano_keypoint_mapping.yaml` | 定义 wrist、MCP、PIP、DIP、tip 在 robot link/local frame 与 MANO joint/vertex 上的语义对应；可先基于 URDF joint/link 命名自动生成候选 mapping，再人工确认。这是防止串指和错误局部最优的关键资源。 | `src/sub_modules/offline_shape_alignment/config/` 或 `assets/hands/<hand>/calibration/` |
 | `robot_reference_pose.yaml` | 固定 Inspire/XHand 的对齐姿态；不同 reference pose 会改变 surface sampling 和 keypoint 位置。当前 XHand 可先由 `fit-xhand-reference-pose` 输出 JSON，再人工确认后固化。 | `assets/hands/<hand>/calibration/` |
 | `mano_reference_pose.yaml` | 固定 MANO 的对齐姿态，例如 open hand / canonical flat hand；第一阶段默认使用 MANO pkl template / zero pose，并在报告里记录。 | `assets/hands/mano/calibration/` |
-| 统一尺度与坐标约定 | URDF mesh、MANO mesh 的单位和朝向需要显式记录；第一阶段不改原始资产，只输出并应用 `robot_to_mano` 相似变换。 | `src/offline_shape_alignment/config/alignment_conventions.yaml` |
+| 统一尺度与坐标约定 | URDF mesh、MANO mesh 的单位和朝向需要显式记录；第一阶段不改原始资产，只输出并应用 `robot_to_mano` 相似变换。 | `src/sub_modules/offline_shape_alignment/config/alignment_conventions.yaml` |
 | MANO 轻量 reference reader | 第一阶段只需读取 MANO pkl 的 template vertices、faces、J、kintree；应避免依赖旧 `chumpy` 或完整 PyTorch MANO forward。 | 新模块代码 |
-| mesh sampling / Chamfer 实现 | 当前 beta-only MVP 已实现固定 seed surface sampling 和 PyTorch Chamfer loss；后续如需更大规模点云或 GLB 支持，再考虑引入 `trimesh` / KD-tree。 | `src/offline_shape_alignment/sampling.py`, `src/offline_shape_alignment/shape_optimization.py` |
+| mesh sampling / Chamfer 实现 | 当前 beta-only MVP 已实现固定 seed surface sampling 和 PyTorch Chamfer loss；后续如需更大规模点云或 GLB 支持，再考虑引入 `trimesh` / KD-tree。 | `src/sub_modules/offline_shape_alignment/sampling.py`, `src/sub_modules/offline_shape_alignment/shape_optimization.py` |
 
 ## 依赖评估
 

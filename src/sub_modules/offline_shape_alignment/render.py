@@ -6,8 +6,8 @@ from typing import Iterable
 
 import numpy as np
 
-from offline_shape_alignment.alignment import apply_similarity_to_points
-from offline_shape_alignment.types import Mesh
+from sub_modules.offline_shape_alignment.alignment import apply_similarity_to_points
+from sub_modules.offline_shape_alignment.types import Mesh
 
 
 def render_alignment_report(

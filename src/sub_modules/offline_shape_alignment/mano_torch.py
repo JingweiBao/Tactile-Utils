@@ -6,13 +6,13 @@ from typing import Any
 
 import numpy as np
 
-from offline_shape_alignment.mano import (
+from sub_modules.offline_shape_alignment.mano import (
     _load_mano_pickle,
     _validate_side,
     default_mano_model_path,
     infer_mano_fingertip_vertices,
 )
-from offline_shape_alignment.types import KEYPOINT_LABELS, KeypointSet, Mesh
+from sub_modules.offline_shape_alignment.types import KEYPOINT_LABELS, KeypointSet, Mesh
 
 
 @dataclass(frozen=True)

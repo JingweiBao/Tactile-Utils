@@ -14,7 +14,7 @@
 
 ### Python 包与接口
 
-新增 `src/offline_shape_alignment/` Python 包，提供库 API 和 CLI：
+新增 `src/sub_modules/offline_shape_alignment/` Python 包，提供库 API 和 CLI：
 
 - `infer_xhand_semantic_keypoints(urdf_path, side, qpos=None)`：基于 XHand URDF FK 生成 21 个语义关键点。
 - `load_mano_reference(side, mano_root)`：读取 MANO pkl 的 `v_template` / `f` / `J` / `kintree`，不依赖 `scipy` / `chumpy`；自动推断 5 个 fingertip vertex。

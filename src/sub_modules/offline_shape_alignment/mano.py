@@ -10,7 +10,7 @@ import types
 
 import numpy as np
 
-from offline_shape_alignment.types import KEYPOINT_LABELS, KeypointSet, Mesh
+from sub_modules.offline_shape_alignment.types import KEYPOINT_LABELS, KeypointSet, Mesh
 
 
 MANO_JOINT_INDEXES: dict[str, tuple[int, int, int]] = {

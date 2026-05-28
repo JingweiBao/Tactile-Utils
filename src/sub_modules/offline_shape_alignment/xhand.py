@@ -6,9 +6,9 @@ from typing import Mapping
 
 import numpy as np
 
-from offline_shape_alignment.types import KEYPOINT_LABELS, KeypointSet, Mesh
-from tactile_layout_3d_projection.inspire import infer_urdf_root_link, load_urdf_collision_meshes
-from tactile_layout_3d_projection.urdf import URDFModel, load_urdf
+from sub_modules.offline_shape_alignment.types import KEYPOINT_LABELS, KeypointSet, Mesh
+from sub_modules.tactile_layout_3d_projection.inspire import infer_urdf_root_link, load_urdf_collision_meshes
+from sub_modules.tactile_layout_3d_projection.urdf import URDFModel, load_urdf
 
 
 DEFAULT_VIRTUAL_DIP_ALPHA = 0.65

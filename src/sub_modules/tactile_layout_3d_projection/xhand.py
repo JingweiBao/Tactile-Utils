@@ -5,8 +5,8 @@ import xml.etree.ElementTree as ET
 
 import numpy as np
 
-from tactile_layout_3d_projection.geometry import transform_points
-from tactile_layout_3d_projection.inspire import (
+from sub_modules.tactile_layout_3d_projection.geometry import transform_points
+from sub_modules.tactile_layout_3d_projection.inspire import (
     Inspire3DScene,
     SensorPointCloud,
     export_sensor_points_3d,
@@ -15,7 +15,7 @@ from tactile_layout_3d_projection.inspire import (
     render_inspire_3d_scene,
     render_inspire_3d_scenes,
 )
-from tactile_layout_3d_projection.urdf import load_urdf
+from sub_modules.tactile_layout_3d_projection.urdf import load_urdf
 
 
 FINGER_LINKS = {

@@ -8,9 +8,9 @@ import xml.etree.ElementTree as ET
 
 import numpy as np
 
-from tactile_layout_3d_projection.config import SensorMountConfig
-from tactile_layout_3d_projection.geometry import taxel_grid_points, transform_matrix, transform_points
-from tactile_layout_3d_projection.urdf import load_urdf
+from sub_modules.tactile_layout_3d_projection.config import SensorMountConfig
+from sub_modules.tactile_layout_3d_projection.geometry import taxel_grid_points, transform_matrix, transform_points
+from sub_modules.tactile_layout_3d_projection.urdf import load_urdf
 
 
 @dataclass(frozen=True)

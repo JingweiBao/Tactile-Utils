@@ -2,13 +2,15 @@
 
 `tactile_utils` is a collection of small utilities for tactile-sensor data, calibration, visualization, and conversion.
 
-The current implemented module is directly under `src/`:
+The current larger implemented modules are grouped under `src/sub_modules/`, with offline bridge code under `src/offline/`:
 
 ```text
-src/tactile_layout_3d_projection/
+src/sub_modules/tactile_layout_3d_projection/
+src/sub_modules/offline_shape_alignment/
+src/offline/
 ```
 
-It visualizes dexterous-hand tactile sensor layouts in the hand's own 3D URDF frame.
+Together they cover dexterous-hand tactile layout visualization, XHand-to-MANO shape alignment, and offline tactile-taxel projection onto a fitted MANO mesh.
 
 Project-level resources stay at the repository root so future utilities can share them:
 
@@ -41,11 +43,11 @@ conda install -n tactile_utils <package>
 
 If a package is unavailable from Conda channels, install it with pip from inside the activated `tactile_utils` environment.
 
-## Module: Offline Shape Alignment Diagnostics
+## Module: Offline Shape Alignment
 
-The first `offline_shape_alignment` implementation is diagnostic-only. It does not optimize MANO shape parameters yet.
+The current `offline_shape_alignment` implementation includes diagnostics, XHand reference-pose fitting, MANO beta-only fitting, and a strongly regularized beta + pose residual MVP.
 
-It currently supports XHand reference-pose diagnostics against MANO:
+It supports XHand reference-pose diagnostics against MANO:
 
 - Infer 21 XHand semantic keypoints from URDF joint/link names and FK.
 - Generate 21 MANO semantic keypoints from the MANO reference model.
@@ -126,6 +128,23 @@ offline-shape-alignment fit-mano-shape-pose \
 ```
 
 This still keeps the MANO root fixed and constrains each non-root MANO joint residual through `pose_limit_rad * tanh(raw_pose)`. It is meant to test whether small MANO pose residuals improve alignment without letting pose absorb all robot-vs-human morphology differences.
+
+## Module: Offline Tactile To MANO Projection
+
+After a fitted MANO OBJ and alignment JSON are available, precompute the static reference-pose sensor-to-MANO vertex weights:
+
+```bash
+offline-tactile-projection project-xhand-tactile \
+  --side both \
+  --alignment-json results/offline_shape_alignment/<timestamp>_xhand_both_mano_beta_pose_fit.json \
+  --xhand-root assets/hands/xhand \
+  --projection-mode semantic-distal \
+  --results-root results
+```
+
+This writes a JSON summary, one sparse COO `.npz` weight matrix per side, one valid MANO vertex mask per side, and PNG visualizations under `results/tactile_to_mano_projection/`.
+
+Available projection modes are `global-nearest`, `semantic-distal`, and `semantic-normalized`. Keep `global-nearest` as a baseline; use `semantic-distal` for conservative same-finger distal/tip projection, and `semantic-normalized` when you want finger-local coordinate mapping before projection.
 
 ## Module: 3D Tactile Layout Projection
 

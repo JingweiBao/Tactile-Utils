@@ -7,9 +7,9 @@ import xml.etree.ElementTree as ET
 
 import numpy as np
 
-from offline_shape_alignment.alignment import apply_similarity_to_points, estimate_similarity_transform
-from offline_shape_alignment.types import KeypointSet, ensure_keypoint_set
-from offline_shape_alignment.xhand import infer_xhand_semantic_keypoints
+from sub_modules.offline_shape_alignment.alignment import apply_similarity_to_points, estimate_similarity_transform
+from sub_modules.offline_shape_alignment.types import KeypointSet, ensure_keypoint_set
+from sub_modules.offline_shape_alignment.xhand import infer_xhand_semantic_keypoints
 
 
 DEFAULT_INITIAL_STEP_RAD = 0.35

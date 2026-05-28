@@ -5,7 +5,7 @@ from typing import Any
 
 import numpy as np
 
-from offline_shape_alignment.types import KeypointSet, Mesh, ensure_keypoint_set
+from sub_modules.offline_shape_alignment.types import KeypointSet, Mesh, ensure_keypoint_set
 
 
 MEAN_DISTANCE_WARN_MM = 25.0

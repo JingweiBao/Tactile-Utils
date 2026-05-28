@@ -6,13 +6,13 @@ from typing import Any, Mapping
 
 import numpy as np
 
-from offline_shape_alignment.alignment import apply_similarity_to_points, diagnose_alignment
-from offline_shape_alignment.mano import load_mano_reference
-from offline_shape_alignment.mano_torch import MANOShapeInstance, load_mano_beta_model
-from offline_shape_alignment.reference_pose import fit_xhand_reference_pose, reference_pose_fit_to_json
-from offline_shape_alignment.sampling import make_surface_sample_pattern, sample_mesh_surface
-from offline_shape_alignment.types import KEYPOINT_LABELS, KeypointSet, Mesh, ensure_keypoint_set
-from offline_shape_alignment.xhand import default_xhand_urdf_path, load_xhand_reference
+from sub_modules.offline_shape_alignment.alignment import apply_similarity_to_points, diagnose_alignment
+from sub_modules.offline_shape_alignment.mano import load_mano_reference
+from sub_modules.offline_shape_alignment.mano_torch import MANOShapeInstance, load_mano_beta_model
+from sub_modules.offline_shape_alignment.reference_pose import fit_xhand_reference_pose, reference_pose_fit_to_json
+from sub_modules.offline_shape_alignment.sampling import make_surface_sample_pattern, sample_mesh_surface
+from sub_modules.offline_shape_alignment.types import KEYPOINT_LABELS, KeypointSet, Mesh, ensure_keypoint_set
+from sub_modules.offline_shape_alignment.xhand import default_xhand_urdf_path, load_xhand_reference
 
 
 DEFAULT_NUM_BETAS = 10

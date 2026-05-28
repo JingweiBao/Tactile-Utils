@@ -43,7 +43,7 @@ conda install -n tactile_utils "mkl<2025"
 从仓库根目录运行源码版命令时，使用：
 
 ```bash
-PYTHONPATH=src python -m offline_shape_alignment.cli <command> ...
+PYTHONPATH=src python -m sub_modules.offline_shape_alignment.cli <command> ...
 ```
 
 如果项目已安装为 package，也可以直接使用 console script：
@@ -57,7 +57,7 @@ offline-shape-alignment <command> ...
 1. 生成 XHand / MANO 诊断报告：
 
 ```bash
-PYTHONPATH=src python -m offline_shape_alignment.cli diagnose-xhand-reference \
+PYTHONPATH=src python -m sub_modules.offline_shape_alignment.cli diagnose-xhand-reference \
   --side both \
   --xhand-root assets/hands/xhand \
   --mano-root assets/hands/mano \
@@ -67,7 +67,7 @@ PYTHONPATH=src python -m offline_shape_alignment.cli diagnose-xhand-reference \
 2. 拟合 XHand reference `qpos`：
 
 ```bash
-PYTHONPATH=src python -m offline_shape_alignment.cli fit-xhand-reference-pose \
+PYTHONPATH=src python -m sub_modules.offline_shape_alignment.cli fit-xhand-reference-pose \
   --side both \
   --xhand-root assets/hands/xhand \
   --mano-root assets/hands/mano \
@@ -77,7 +77,7 @@ PYTHONPATH=src python -m offline_shape_alignment.cli fit-xhand-reference-pose \
 3. 跑 MANO beta-only shape optimization：
 
 ```bash
-PYTHONPATH=src python -m offline_shape_alignment.cli fit-mano-shape \
+PYTHONPATH=src python -m sub_modules.offline_shape_alignment.cli fit-mano-shape \
   --side both \
   --xhand-root assets/hands/xhand \
   --mano-root assets/hands/mano \
@@ -90,7 +90,7 @@ PYTHONPATH=src python -m offline_shape_alignment.cli fit-mano-shape \
 4. 跑受限 beta + pose residual optimization：
 
 ```bash
-PYTHONPATH=src python -m offline_shape_alignment.cli fit-mano-shape-pose \
+PYTHONPATH=src python -m sub_modules.offline_shape_alignment.cli fit-mano-shape-pose \
   --side both \
   --xhand-root assets/hands/xhand \
   --mano-root assets/hands/mano \

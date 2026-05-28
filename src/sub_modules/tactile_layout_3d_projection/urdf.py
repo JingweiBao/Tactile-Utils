@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 
 import numpy as np
 
-from tactile_layout_3d_projection.geometry import transform_matrix
+from sub_modules.tactile_layout_3d_projection.geometry import transform_matrix
 
 
 @dataclass(frozen=True)
