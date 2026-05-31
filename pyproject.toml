@@ -17,6 +17,7 @@ dependencies = [
 tactile-utils = "sub_modules.tactile_layout_3d_projection.cli:main"
 offline-shape-alignment = "sub_modules.offline_shape_alignment.cli:main"
 offline-tactile-projection = "offline.cli:main"
+online-tactile-map = "online.cli:main"
 
 [project.optional-dependencies]
 shape-align = [
